@@ -350,3 +350,6 @@ healthchecksdb
 MigrationBackup/
 
 Properties/launchSettings.json
+Old/*
+Old/*.*
+*.bak
