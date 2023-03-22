@@ -73,7 +73,6 @@ namespace WrdEditor
 				sb.Append('\n');
 			}
 			wrdCommandTextBox.Text = sb.ToString();
-			InputManager.Print((string)wrdCommandTextBox.Text.Length.ToString());
 
 			// Check if we need to prompt the user to open an external STX file for strings
 			wrdStringsTextBox.Text = string.Empty;
@@ -144,35 +143,42 @@ namespace WrdEditor
 
 				// Verify that we are using the correct argument types for each command
 				int opcodeId = Array.IndexOf(WrdCommandHelper.OpcodeNames, opcode);
-				for (int argNum = 0; argNum < args.Length; ++argNum)
+
+				// The "LOC" and "BTN" opcodes
+				bool bypass_check = opcodeId == 70 || opcodeId == 71;
+
+				if (!bypass_check)
 				{
-					// Verify the number of arguments is correct
-					int expectedArgCount = WrdCommandHelper.ArgTypeLists[opcodeId].Count;
-					if (args.Length < expectedArgCount)
+					for (int argNum = 0; argNum < args.Length; ++argNum)
 					{
-						MessageBox.Show($"ERROR: Command at line {lineNum} expects {expectedArgCount} arguments, but got {args.Length}.");
-						return;
-					}
-					else if (args.Length > expectedArgCount)
-					{
-						if (opcodeId != 1 && opcodeId != 3)
+						// Verify the number of arguments is correct
+						int expectedArgCount = WrdCommandHelper.ArgTypeLists[opcodeId].Count;
+						if (args.Length < expectedArgCount)
 						{
 							MessageBox.Show($"ERROR: Command at line {lineNum} expects {expectedArgCount} arguments, but got {args.Length}.");
 							return;
 						}
-					}
-
-					switch (WrdCommandHelper.ArgTypeLists[opcodeId][argNum % expectedArgCount])
-					{
-						case 1:
-						case 2:
-							bool isNumber = ushort.TryParse(args[argNum], out _);
-							if (!isNumber)
+						else if (args.Length > expectedArgCount)
+						{
+							if (opcodeId != 1 && opcodeId != 3)
 							{
-								MessageBox.Show($"ERROR: Argument {argNum} at line {lineNum} must be a number between {ushort.MinValue} and {ushort.MaxValue}.");
+								MessageBox.Show($"ERROR: Command at line {lineNum} expects {expectedArgCount} arguments, but got {args.Length}.");
 								return;
 							}
-							break;
+						}
+
+						switch (WrdCommandHelper.ArgTypeLists[opcodeId][argNum % expectedArgCount])
+						{
+							case 1:
+							case 2:
+								bool isNumber = ushort.TryParse(args[argNum], out _);
+								if (!isNumber)
+								{
+									MessageBox.Show($"ERROR: Argument {argNum} at line {lineNum} must be a number between {ushort.MinValue} and {ushort.MaxValue}.");
+									return;
+								}
+								break;
+						}
 					}
 				}
 

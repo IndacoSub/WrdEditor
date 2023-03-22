@@ -1,0 +1,21 @@
+In accordance to the "GNU General Public License 3.0" License (the "License"), also known as GPLv3, which may be consulted by opening the LICENSE file included with the code repository¹ and all derivate forks (variations may include: "LICENSE.md", "LICENSE.txt" and more), hereby is a changelog attesting all relevant changes made to the WrdEditor software (the "Program"), since it was cloned ("forked") from the code repository¹:
+
+-- 22/03/2023 --
+
+- The Program was manually converted ("ported") from "WPF" to "WinForms" while retaining most, if not all functionality and ease of use, when possible.
+- The Program's title now warns the user not to use the "Shift" key on their keyboard, due to an undesired WinForms feature related to newlines in a RichBlockText.
+- The Program now displays some important messages, when needed, instead of keeping them in a corner.
+- The Program will now accept any number of arguments from the WRD opcodes "LOC", used to display text, and "BTN", used to wait a specific input from the user.
+-- This was meant to be a debug setting, but may be disabled from a "power user" by modifying a re-compiling the code, if needed.
+- The Program might be subject to major changes in the future, depending on the needs of the translation team(s).
+- The outdated "V3Lib" (the "Library") from "DRV3-Sharp"², which is also subject to the same License and maintained by the same author ("CaptainSwag101"), was partially incorporated into the Program in order for it to compile, and to make the "debugging" process easier.
+-- The only change made to the Library is a bug fix that prevents a miscalculation of string counts in a "WRD" (.wrd) file while saving it.
+-- WrdEditor was once part of the DRV3-Sharp repository, but it has since been moved to its own, separate repository.
+-- Inside the DRV3-Sharp repository, the Library has already been replaced by a newer library and possibly with fewer bugs, which has been capable of the same operations, in terms of reading and editing WRD files, as the Library, since January 2023, at the cost of the "GUI", given that DRV3-Sharp has a minimal interface, more complex and less accessible, compared to the Program.
+
+--------------------
+
+Please consider using DRV3-Sharp instead!
+
+¹ Source code, license and more available on https://github.com/CaptainSwag101/WrdEditor
+² Source code, license and more available on https://github.com/CaptainSwag101/DRV3-Sharp

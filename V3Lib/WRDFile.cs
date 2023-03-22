@@ -141,6 +141,7 @@ namespace WrdEditor.V3Lib
             List<string> labelNames = new();
             List<string> parameters = new();
             ushort stringCount = 0;
+            ushort locCount = 0;
 
             foreach (WrdCommand command in Commands)
             {
@@ -156,6 +157,7 @@ namespace WrdEditor.V3Lib
                         // The highest-numbered string index the script references must be
                         // the total number of strings the script contains.
                         stringCount = Math.Max(ushort.Parse(command.Arguments[0]), stringCount);
+                        locCount++;
                         break;
 
                     case "LBN":
@@ -206,8 +208,14 @@ namespace WrdEditor.V3Lib
             }
             commandWriter.Flush();
 
-            // Finally, save the raw data to the file
-            using BinaryWriter writer = new(new FileStream(wrdPath, FileMode.Create));
+			if (locCount > 1)
+			{
+                // LOC 0
+				stringCount++;
+			}
+
+			// Finally, save the raw data to the file
+			using BinaryWriter writer = new(new FileStream(wrdPath, FileMode.Create));
 
             // Write counts
             writer.Write(BitConverter.GetBytes(stringCount));

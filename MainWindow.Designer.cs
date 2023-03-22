@@ -67,7 +67,7 @@ namespace WrdEditor
 			// 
 			newScriptToolStripMenuItem.Name = "newScriptToolStripMenuItem";
 			newScriptToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-			newScriptToolStripMenuItem.Size = new Size(206, 22);
+			newScriptToolStripMenuItem.Size = new Size(258, 22);
 			newScriptToolStripMenuItem.Text = "New Script";
 			newScriptToolStripMenuItem.Click += newScriptToolStripMenuItem_Click;
 			// 
@@ -75,7 +75,7 @@ namespace WrdEditor
 			// 
 			openScriptToolStripMenuItem.Name = "openScriptToolStripMenuItem";
 			openScriptToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-			openScriptToolStripMenuItem.Size = new Size(206, 22);
+			openScriptToolStripMenuItem.Size = new Size(258, 22);
 			openScriptToolStripMenuItem.Text = "Open Script";
 			openScriptToolStripMenuItem.Click += openScriptToolStripMenuItem_Click;
 			// 
@@ -83,15 +83,15 @@ namespace WrdEditor
 			// 
 			saveScriptToolStripMenuItem.Name = "saveScriptToolStripMenuItem";
 			saveScriptToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
-			saveScriptToolStripMenuItem.Size = new Size(206, 22);
+			saveScriptToolStripMenuItem.Size = new Size(258, 22);
 			saveScriptToolStripMenuItem.Text = "Save Script";
 			saveScriptToolStripMenuItem.Click += saveScriptToolStripMenuItem_Click;
 			// 
 			// saveScriptAsToolStripMenuItem
 			// 
 			saveScriptAsToolStripMenuItem.Name = "saveScriptAsToolStripMenuItem";
-			saveScriptAsToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
-			saveScriptAsToolStripMenuItem.Size = new Size(206, 22);
+			saveScriptAsToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.A;
+			saveScriptAsToolStripMenuItem.Size = new Size(258, 22);
 			saveScriptAsToolStripMenuItem.Text = "Save Script As...";
 			saveScriptAsToolStripMenuItem.Click += saveScriptAsToolStripMenuItem_Click;
 			// 
@@ -114,7 +114,7 @@ namespace WrdEditor
 			CommandsPage.Padding = new Padding(3);
 			CommandsPage.Size = new Size(776, 359);
 			CommandsPage.TabIndex = 0;
-			CommandsPage.Text = "CommandsPage";
+			CommandsPage.Text = "Commands";
 			CommandsPage.UseVisualStyleBackColor = true;
 			CommandsPage.Click += CommandsPage_Click;
 			// 
@@ -135,7 +135,7 @@ namespace WrdEditor
 			StringsPage.Padding = new Padding(3);
 			StringsPage.Size = new Size(776, 359);
 			StringsPage.TabIndex = 1;
-			StringsPage.Text = "StringsPage";
+			StringsPage.Text = "Strings";
 			StringsPage.UseVisualStyleBackColor = true;
 			StringsPage.Click += StringsPage_Click;
 			// 
@@ -158,7 +158,7 @@ namespace WrdEditor
 			MainMenuStrip = menuStrip1;
 			MinimumSize = new Size(800, 450);
 			Name = "MainWindow";
-			Text = "WRDEditor by CaptainSwag101 -- WinForms";
+			Text = "WRDEditor by CaptainSwag101 -- WinForms -- DO NOT USE SHIFT";
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
 			TabControl.ResumeLayout(false);
